@@ -46,34 +46,42 @@ const Invoices = () => {
     <Box m="20px">
       <Header title="INVOICES" subtitle="List of Invoice Balances" />
       <Box
-        m="40px 0 0 0 "
-        height="75vh"
-        sx={{
-          "& .MuiDataGrid-root": { border: "none" },
-          "& .MuiDataGrid-cell": { borderBottom: "none" },
-          // "& .name-column--cell": { color: colors.greenAccent[300] },
-          "& .MuiDataGrid-columnHeaders": {
-            backgroundColor: colors.blueAccent[700],
-            borderBottom: "none",
-          },
-          "& .MuiDataGrid-virtualScroller": {
-            backgroundColor: colors.primary[400],
-          },
-          "& .MuiDataGrid-footerContainer": {
-            backgroundColor: colors.blueAccent[700],
-            borderTop: "none",
-          },
-          "& .MuiCheckbox-root": {
-            color: `${colors.greenAccent[200]} !important`,
-          },
-        }}
+        display="grid"
+        gridTemplateColumns="repeat(12, 1fr)"
+        gridAutoRows="140px"
+        gap="20px"
       >
-        <DataGrid
-          rows={mockDataInvoices}
-          columns={columns}
-          checkboxSelection
-          disableRowSelectionOnClick
-        />
+        <Box
+          gridColumn="span 12"
+          m="40px 0 0 0 "
+          height="75vh"
+          sx={{
+            "& .MuiDataGrid-root": { border: "none" },
+            "& .MuiDataGrid-cell": { borderBottom: "none" },
+            // "& .name-column--cell": { color: colors.greenAccent[300] },
+            "& .MuiDataGrid-columnHeaders": {
+              backgroundColor: colors.blueAccent[700],
+              borderBottom: "none",
+            },
+            "& .MuiDataGrid-virtualScroller": {
+              backgroundColor: colors.primary[400],
+            },
+            "& .MuiDataGrid-footerContainer": {
+              backgroundColor: colors.blueAccent[700],
+              borderTop: "none",
+            },
+            "& .MuiCheckbox-root": {
+              color: `${colors.greenAccent[200]} !important`,
+            },
+          }}
+        >
+          <DataGrid
+            rows={mockDataInvoices}
+            columns={columns}
+            checkboxSelection
+            disableRowSelectionOnClick
+          />
+        </Box>
       </Box>
     </Box>
   );
